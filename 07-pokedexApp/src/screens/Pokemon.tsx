@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { StackScreenProps } from '@react-navigation/stack';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Text, View, StyleSheet, TouchableOpacity, Image, ActivityIndicator } from 'react-native';
@@ -10,6 +10,9 @@ import { FadeInImage } from '../components/FadeInImage';
 import { PokemonDetails } from '../components/PokemonDetails';
 
 import { usePokemon } from '../hooks/usePokemon';
+import { FavoritesContext } from '../context/FavoritesContext';
+import { PokemonItem } from '../interfaces/pokemon';
+import { useEffect } from 'react';
 
 interface Props extends StackScreenProps<RootStackScreen, 'Pokemon'> {};
 
@@ -20,6 +23,19 @@ export const Pokemon = ({ navigation, route: { params }}: Props) => {
 
   const { isLoading, pokemonDetails } =  usePokemon(id)
 
+  const { addFavorite, favorites: { favorites }} = useContext(FavoritesContext)
+
+  const [ isAdded , setIsAdded ] = useState(false)
+
+  const verifyPokemonContext = (favorites: PokemonItem[]) => {
+    const value = favorites?.some(e => e.id == id)
+    setIsAdded(value)
+  }
+
+  useEffect(() => {
+    verifyPokemonContext(favorites)
+  }, [ favorites ])
+  
   return(
     <View style={{ flex: 1 }}>
       <View style={{ ...styles.headerContainer, backgroundColor: color }}>
@@ -36,6 +52,16 @@ export const Pokemon = ({ navigation, route: { params }}: Props) => {
           <Text style={{ ...styles.pokemonName, top: top + 40 }}> { name } </Text>
           <Text style={{ ...styles.pokemonName, top: top + 40 }}> #{ id } </Text>
 
+          { !isAdded && 
+            <TouchableOpacity
+              activeOpacity={ 0.7 }
+              style={{ ...styles.addFavorite }}
+              onPress={ () => { addFavorite({ picture, name, id }), setIsAdded(!isAdded) }}
+            >
+              <Icon name='heart-outline' size={ 40 } color='black' />
+            </TouchableOpacity>
+          }
+
           {/* Pokeball White */}
           <Image 
             source={ require('../assets/pokeball-white.png') }
@@ -43,7 +69,7 @@ export const Pokemon = ({ navigation, route: { params }}: Props) => {
           />
 
           {/* Pokemon Image */}
-          <FadeInImage  uri={ picture } style={ styles.pokemonImage }/>
+          <FadeInImage uri={ picture } style={ styles.pokemonImage }/>
 
       </View>
 
@@ -79,8 +105,9 @@ const styles = StyleSheet.create({
   pokeball: {
     width: 250,
     height: 250,
-    bottom: -20,
-    opacity: 0.5
+    bottom: 0,
+    opacity: 0.5,
+    position: 'absolute',
   },
   pokemonImage: {
     width: 250,
@@ -92,5 +119,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  addFavorite: {
+    alignSelf: 'flex-end',
+    paddingRight: 20,
+    zIndex: 9
   }
 });

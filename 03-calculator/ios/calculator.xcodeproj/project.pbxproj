@@ -14,6 +14,7 @@
 		6172F2D35A4C3AA820D92908 /* libPods-calculator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6423831EA8574132BED9D8CC /* libPods-calculator.a */; };
 		7EF68E3733C33B6898317E18 /* libPods-calculator-calculatorTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABFE59519B596E51CEFDCCC0 /* libPods-calculator-calculatorTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		A2E121BE27EA065E009731F6 /* image-calculator.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E121BD27EA065E009731F6 /* image-calculator.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		6423831EA8574132BED9D8CC /* libPods-calculator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-calculator.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C97AB639B58BBB4B15BBE30 /* Pods-calculator-calculatorTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-calculator-calculatorTests.debug.xcconfig"; path = "Target Support Files/Pods-calculator-calculatorTests/Pods-calculator-calculatorTests.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = calculator/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A2E121BD27EA065E009731F6 /* image-calculator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image-calculator.png"; sourceTree = "<group>"; };
 		ABFE59519B596E51CEFDCCC0 /* libPods-calculator-calculatorTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-calculator-calculatorTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0A881CF5CF3F2B244570E2A /* Pods-calculator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-calculator.debug.xcconfig"; path = "Target Support Files/Pods-calculator/Pods-calculator.debug.xcconfig"; sourceTree = "<group>"; };
 		D00AAFFCFCFDA5787532823F /* Pods-calculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-calculator.release.xcconfig"; path = "Target Support Files/Pods-calculator/Pods-calculator.release.xcconfig"; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
+				A2E121BD27EA065E009731F6 /* image-calculator.png */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
 			name = calculator;
@@ -145,7 +148,6 @@
 				6C97AB639B58BBB4B15BBE30 /* Pods-calculator-calculatorTests.debug.xcconfig */,
 				1D0AE47A65C8663E3B452821 /* Pods-calculator-calculatorTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -241,6 +243,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2E121BE27EA065E009731F6 /* image-calculator.png in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);

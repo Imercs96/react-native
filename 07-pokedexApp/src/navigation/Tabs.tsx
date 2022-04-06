@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Platform } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import { Navigation } from './Navigation';
-import { Search } from '../screens/Search';
 import { SecondaryTab } from './SecondaryTab';
+import { Favorites } from '../screens/Favorites';
 
 const Tab = createBottomTabNavigator();
 
@@ -42,6 +42,14 @@ export const Tabs = () => {
             )
         }}
         name="SecondaryTab" component={ SecondaryTab } />
+        <Tab.Screen 
+          options={{
+              tabBarLabel: 'Favorites',
+              tabBarIcon: ({ color }) => (
+                  <Icon name='star-outline' size={ 20 } color={ color } />
+              )
+          }}
+          name="Favorites" component={ Favorites } />
     </Tab.Navigator>
   );
 }
